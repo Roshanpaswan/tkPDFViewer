@@ -112,7 +112,7 @@ class ShowPdf():
             else:
                 zoom_out(event)
         
-        if platform.system() == 'Windows' or 'Darwin':
+        if platform.system() == 'Windows' or platform.system() == 'Darwin':
             self.text.bind('<Control-plus>', zoom_in)
             self.text.bind('<Control-minus>', zoom_out)
             self.text.bind('<Control-MouseWheel>', zooming)
