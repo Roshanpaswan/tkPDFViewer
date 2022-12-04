@@ -5,6 +5,7 @@ try:
     from threading import Thread
     import math
     from PIL import Image, ImageTk
+    import platform
 except Exception as e:
     print(f"This error occured while importing neccesary modules or library {e}")
 
@@ -111,8 +112,15 @@ class ShowPdf():
             else:
                 zoom_out(event)
         
-        self.text.bind('<Control-plus>', zoom_in)
-        self.text.bind('<Control-minus>', zoom_out)
-        self.text.bind('<Control-MouseWheel>', zooming)
+        if platform.system() == 'Windows' or 'Darwin':
+            self.text.bind('<Control-plus>', zoom_in)
+            self.text.bind('<Control-minus>', zoom_out)
+            self.text.bind('<Control-MouseWheel>', zooming)
+        elif platform.system() == 'Linux':
+            # cant bind neither control + nor control - events on linux for some reason
+            self.text.bind('<Control-Button-4>', zoom_in)
+            self.text.bind('<Control-Button-5>', zoom_out)
+        else:
+            pass
         
         return self.frame
