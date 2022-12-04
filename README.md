@@ -19,6 +19,11 @@ The tkPDFViewer is python library, which allows you to embed the PDF file in you
 > with customizable width and height
 > worked with python 2.7+.
 
+# Update by Constant206462
+
+  - New -dpi option
+  - You can zoom in / zoom out by pressing control button and scrolling the mouse wheel or pressing "+" and "-" on keyboard
+
 ### Installation
 
 
@@ -93,6 +98,7 @@ load --> after or before, Through this attribute you can decide that , when your
  - PyMuPDF
  - Thread
  - math
+ - Pillow
 
 
 License
